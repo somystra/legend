@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NetGlobal OS | Pro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <div id="auth-wall" class="glass-overlay">
+        <div class="glass-card auth-card">
+            <div class="logo-box">N</div>
+            <h2>NetGlobal OS</h2>
+            <p>Ijtimoiy tarmoqning yangi davri</p>
+            <button id="btn-login" class="primary-btn"><i class="fab fa-google"></i> Tizimga kirish</button>
+            
+            <div id="setup-profile" style="display: none; margin-top: 20px;">
+                <input type="text" id="input-username" class="glass-input" placeholder="@username yarating">
+                <button id="btn-finish-setup" class="primary-btn" style="margin-top: 10px;">Boshladik</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="main-app" class="app-layout" style="display: none;">
+        
+        <nav class="sidebar glass-panel">
+            <div class="sidebar-brand">
+                <div class="logo-box-small">N</div>
+                <h3>NetGlobal</h3>
+            </div>
+            <div class="nav-links">
+                <a href="#" class="nav-item active"><i class="fas fa-home"></i> <span>Asosiy</span></a>
+                <a href="#" class="nav-item"><i class="fas fa-search"></i> <span>Qidiruv</span></a>
+                <a href="#" class="nav-item" id="btn-create-post"><i class="fas fa-plus-square"></i> <span>Yaratish</span></a>
+                <a href="#" class="nav-item"><i class="fas fa-heart"></i> <span>Bildirishnomalar</span></a>
+                <a href="#" class="nav-item profile-link">
+                    <img id="my-avatar" src="" alt="A"> <span id="my-username">Profil</span>
+                </a>
+            </div>
+            <div class="sidebar-footer">
+                <small>© 2026 NetGlobal Team</small>
+            </div>
+        </nav>
+
+        <main class="feed-container">
+            <div class="stories-bar glass-panel" id="stories-container">
+                <div class="story-item"><div class="story-ring"><img src="https://via.placeholder.com/50"></div><span>Siz</span></div>
+            </div>
+
+            <div id="posts-stream">
+                </div>
+        </main>
+    </div>
+
+    <div id="modal-compose" class="glass-overlay" style="display: none;">
+        <div class="glass-card compose-card">
+            <div class="modal-header">
+                <h3>Yangi post</h3>
+                <i class="fas fa-times" id="btn-close-modal" style="cursor: pointer;"></i>
+            </div>
+            <textarea id="post-text" class="glass-input" placeholder="Nima gaplar?..." rows="3"></textarea>
+            <div class="upload-area">
+                <label for="post-file"><i class="fas fa-image"></i> Rasm/Video tanlash</label>
+                <input type="file" id="post-file" hidden accept="image/*,video/*">
+            </div>
+            <button id="btn-publish" class="primary-btn">Ulashish</button>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-storage-compat.js"></script>
+    
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyBqKqszWBCMrKIjN0Wb9PxC7wArkjd5FSU",
+            authDomain: "netchat-52007.firebaseapp.com",
+            databaseURL: "https://netchat-52007-default-rtdb.firebaseio.com",
+            projectId: "netchat-52007",
+            storageBucket: "netchat-52007.firebasestorage.app",
+            messagingSenderId: "145404562699",
+            appId: "1:145404562699:web:5eeb4c6abc3e18675b660e"
+        };
+        firebase.initializeApp(firebaseConfig);
+    </script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
